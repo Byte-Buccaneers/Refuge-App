@@ -19,19 +19,19 @@
 var app = {
     // Application Constructor
     initialize: function() {
-        this.bindEvents();	
-			
+        this.bindEvents();
+
 		app.resizeMap();
-		
-		var map = L.map('map-canvas').setView([45.423, -75.679], 13);
-		
+
+		var map = L.map('map-canvas').setView([41.151, -81.361], 5);
+
 		//this works, but is online:
 		/*
 		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			maxZoom: 18
 		}).addTo(map);
 		*/
-		
+
 		//TODO build something to fall back to web if not found.
 		L.tileLayer('img/mapTiles/{z}/{x}/{y}.png', {
 			maxZoom: 17
@@ -39,7 +39,7 @@ var app = {
 
 
 		L.marker([45.423, -75.679]).addTo(map)
-			.bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+			.bindPopup("<b>Byte Buccaneers!</b><br />I am a popup.").openPopup();
 
 		var popup = L.popup();
 
@@ -51,7 +51,7 @@ var app = {
 		}
 
 		map.on('click', onMapClick);
-		
+
     },
     // Bind Event Listeners
     //
@@ -79,13 +79,13 @@ var app = {
         console.log('Received Event: ' + id);
     },
 	resizeMap: function() {
-		 $("#map-canvas").height(Math.max(100,$(window).height()-90));// TODO set 
+		 $("#map-canvas").height(Math.max(100,$(window).height()-90));// TODO set
 	}
-	
-	
+
+
 };
 
-	
+
 
 	$(window).resize(function() {
 		app.resizeMap();
