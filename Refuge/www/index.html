@@ -22,14 +22,11 @@
                             <img src="img/logo.png" id="logo"  />
                         </div>
                     <div id="menu">
-                        <a data-icon="flat-heart" data-theme="d" href="#second-page" data-role="button">Sign Up</a>
-                        <a data-icon="flat-time" data-theme="f" href="#directions"  data-role="button">Login</a>
+                        <a data-icon="flat-heart" data-theme="d" href="#second-page" data-role="button" id="initialize">Sign Up</a>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a"> <a data-icon="flat-checkround" data-theme="e" href="#tips-page"  data-role="button">Fake Btn</a></div>
                             <div class="ui-block-b"><a data-icon="ms-question" data-theme="g" href="#about-page"  data-role="button" >Help</a></div>
                         </fieldset>
-
-
                     </div>
                 </div>
             </div><!-- /page  -->
@@ -48,9 +45,9 @@
                         <input type="text" name="name" id="name" data-mini="true" placeholder="John Smith"/>
                         <label for="phonenumber">Phone</label>
                         <input type="text" name="phone" id="phonenumber" data-mini="true" placeholder="123456789"/>
-
-                        <button type="submit" data-theme="f" data-mini="false" class="ui-btn-hidden" aria-disabled="false">Submit</button>
                     </form>
+                    <a data-icon="flat-time" data-theme="f" href="#directions" id="mainViewTrans" data-role="button">Login</a>
+                    <button type="submit" data-theme="f" data-mini="false" class="ui-btn-hidden" id="initSubmit" aria-disabled="false">Submit</button>
                 </div>
             </div>
 
@@ -80,7 +77,7 @@
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
                     <h1>Group</h1>
                 </div>
-                <div data-role="content" >
+                <div data-role="content" id="groupContent">
                     <div class="spanning-container">
                     </div>
                 </div>

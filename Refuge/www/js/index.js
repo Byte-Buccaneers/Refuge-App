@@ -25,6 +25,7 @@ var app = {
         console.log("console log init");
         this.bindEvents();
         this.initFastClick();
+        this.errorLogger();
     },
     // Bind Event Listeners
     //
@@ -38,22 +39,53 @@ var app = {
             FastClick.attach(document.body);
         }, false);
     },
+    errorLogger : function(){
+        alert("error logging now in alerts");
+        window.onerror = function(msg, url, linenumber) {
+            alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+        return true;
+        }
+    },
     // Phonegap is now ready...
     onDeviceReady: function() {
-        // Start adding your code here....
-        alert("device ready, start making you custom calls!");
+        // Start adding your code here...
+        $(document).ready(function(){
+            alert("Document ready");
 
-        if (window.jQuery) {
-            alert("jquery loaded")
-        } else {
-            alert("jquery not there")
-        }
+            var defaultGroupContent = "<div> Your group has no members. </div>";
+            $('#groupContent').html(defaultGroupContent);
+                $.ajax({
+                    url: "https://khe2015.herokuapp.com/users/newuser"
+                }).complete(function(data){
+                    alert("ajax fired!")
+                    $('#groupContent').html("<div>hell yeah</div>");
+                });
+            })
 
-        $.ajax({
-            url: "https://khe2015.herokuapp.com/read"
-        }).done(function(data){
-            alert("ajax fired!")
-            $('#success').html("hell yeah");
-        });
+            // localStorage.setItem("phoneNumber","5556667777")
+            //below line clears localstored phonenumber, use for debugging
+            localStorage.removeItem("phoneNumber");
+            // alert(localStorage.getItem("phoneNumber"));
+            if(localStorage.getItem("phoneNumber") === null){
+                $('#initialize').click();
+            }
+
+            $("#initSubmit").click(function(){
+                phonenumber = $("#phonenumber").value;
+                name = $("#name").value;
+                reqObj = {"phonenumber":phonenumber , "name":name};
+                $.ajax({
+                    url:"www.google.com"
+                    //url: "https://khe2015.herokuapp.com/users/newuser",
+                    //method: "PUT",
+                    //data: reqObj
+                }).complete(function(data){
+                    alert("ajax fired!")
+                    $("#mainViewTrans").click();
+                });
+
+            })
+
+
     }
 };

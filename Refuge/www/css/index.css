@@ -75,8 +75,14 @@ margin: .8em 30% .8em;
 
 /* map */
 #second-page{
-   
+
 }
+
+#mainViewTrans{
+    position:fixed;
+    left: -99999999999999px;
+}
+
 .big-text{
     font-size: 1.3em;
 }
