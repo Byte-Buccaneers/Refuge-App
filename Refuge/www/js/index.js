@@ -42,10 +42,16 @@ var app = {
     onDeviceReady: function() {
         // Start adding your code here....
         alert("device ready, start making you custom calls!");
+
+        if (window.jQuery) {
+            alert("jquery loaded")
+        } else {
+            alert("jquery not there")
+        }
+
         $.ajax({
-            url: "https://khe2015.herokuapp.com/read",
-            context: document.body
-        }).done(function() {
+            url: "https://khe2015.herokuapp.com/read"
+        }).done(function(data){
             alert("ajax fired!")
             $('#success').html("hell yeah");
         });
