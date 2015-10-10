@@ -11,6 +11,7 @@
         <title>App Name</title>
     </head>
     <body>
+        <span id="success"></span>
         <div id="app">
             <!-- ==========================================
             Main Menu
@@ -22,7 +23,7 @@
                         </div>
                     <div id="menu">
                         <a data-icon="flat-heart" data-theme="d" href="#second-page" data-role="button">Sign Up</a>
-                        <a data-icon="flat-time" data-theme="f" href="#login"  data-role="button">Login</a>
+                        <a data-icon="flat-time" data-theme="f" href="#directions"  data-role="button">Login</a>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a"> <a data-icon="flat-checkround" data-theme="e" href="#tips-page"  data-role="button">Fake Btn</a></div>
                             <div class="ui-block-b"><a data-icon="ms-question" data-theme="g" href="#about-page"  data-role="button" >Help</a></div>
@@ -45,8 +46,8 @@
                     <form  id="search-form" action="">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" data-mini="true" placeholder="John Smith"/>
-                        <label for="dentist">Phone</label>
-                        <input type="text" name="phone" id="dentist" data-mini="true" placeholder="123456789"/>
+                        <label for="phonenumber">Phone</label>
+                        <input type="text" name="phone" id="phonenumber" data-mini="true" placeholder="123456789"/>
 
                         <button type="submit" data-theme="f" data-mini="false" class="ui-btn-hidden" aria-disabled="false">Submit</button>
                     </form>
@@ -54,22 +55,65 @@
             </div>
 
             <!-- ==========================================
-            Login
+            Directions
             ========================================== -->
-            <div  id="login" data-role="page">
+            <div id="directions" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <a href="#home-page"  data-role="button" data-icon="arrow-l" data-inline="true" >Back</a>
-                    <h1>Login</h1>
+                    <h1>Directions</h1>
                 </div>
                 <div data-role="content" >
-                    <form  id="search-form" action="">
-                        <label for="dentist">Phone</label>
-                        <input type="text" name="phone" id="dentist" data-mini="true" placeholder="123456789"/>
-
-                        <button type="submit" data-theme="f" data-mini="false" class="ui-btn-hidden" aria-disabled="false">Login</button>
-                    </form>
+                    <div class="spanning-container">
+                    </div>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a class="map-button" href="#map" data-icon="flat-location" data-role="button">Map</a></li>
+                            <li><a class="list-button" href="#directions" data-icon="flat-menu" data-role="button" data-theme="b">Directions</a></li>
+                            <li><a class="search-button" href="#group" data-icon="ms-search" data-role="button">Group</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <div id="group" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <h1>Group</h1>
+                </div>
+                <div data-role="content" >
+                    <div class="spanning-container">
+                    </div>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a class="map-button" href="#map" data-icon="flat-location" data-role="button">Map</a></li>
+                            <li><a class="list-button" href="#directions" data-role="button" data-icon="flat-menu">Directions</a></li>
+                            <li><a class="search-button" href="#group" data-icon="ms-search" data-role="button" data-theme="b">Group</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="map" data-role="page">
+                <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
+                    <h1>Map</h1>
+                </div>
+                <div data-role="content" >
+                    <div class="spanning-container">
+                    </div>
+                </div>
+                <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
+                    <div id="navbar" data-role="navbar">
+                        <ul>
+                            <li><a class="map-button" href="#map" data-icon="flat-location" data-role="button"  data-theme="b">Map</a></li>
+                            <li><a class="list-button" href="#directions" data-icon="flat-menu" data-role="button">Directions</a></li>
+                            <li><a class="search-button" href="#group" data-icon="ms-search" data-role="button">Group</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- ==========================================
             Help
