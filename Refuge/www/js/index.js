@@ -5,7 +5,7 @@
 $(document).ready(function(){
     //pass the id of a view as a string, in format "#yourview"
     alert("fired ready")
-    if(window.localStorage.phoneNumber === undefined)
+    if(localStorage.phoneNumber === undefined)
         switchView("#initialize").delay(1500);
     else switchView("#destination").delay(1500);
 });
@@ -15,6 +15,6 @@ $(document).ready(function(){
 function switchView(viewID){
     alert("fired switch")
     $(".view active").fadeOut(300, function(){
-        $(viewID).fadeIn(300)
+        $(viewID).css("display","block")
     });
 }
