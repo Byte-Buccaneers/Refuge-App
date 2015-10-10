@@ -40,14 +40,14 @@ var app = {
     },
     // Phonegap is now ready...
     onDeviceReady: function() {
-        console.log("device ready, start making you custom calls!");
+        // Start adding your code here....
+        alert("device ready, start making you custom calls!");
         $.ajax({
             url: "https://khe2015.herokuapp.com/read",
             context: document.body
         }).done(function() {
-            $(#success).html("hell yeah");
+            alert("ajax fired!")
+            $('#success').html("hell yeah");
         });
-        // Start adding your code here....
-
     }
 };
