@@ -53,7 +53,7 @@ var app = {
             //alert("Document ready");
 
             var grabLoc = navigator.geolocation.getCurrentPosition(function(data, err){
-                alert(data);
+                //alert(data);
                 return data;
             });
             var defaultGroupContent  = "<div class='messageContainer'>"
@@ -78,7 +78,6 @@ var app = {
             if(localStorage.getItem("phoneNumber") === null){
                 $('#initialize').click();
             } else {
-
                 $("#mainViewTrans").click();
             }
 
@@ -86,7 +85,7 @@ var app = {
                 phonenumber = $("#phonenumber").val();
                 name = $("#name").val();
                 url = "https://khe2015.herokuapp.com/createuser/" + phonenumber + '/' + name;
-                alert(url);
+                //alert(url);
                 if (name === undefined || phonenumber === undefined){
                 } else{
                 $.ajax({
@@ -95,7 +94,7 @@ var app = {
                     //method: "PUT",
                     //data: reqObj
                 }).success(function(data){
-                    alert(data);
+                    //alert(data);
                     localStorage.setItem("phoneNumber",phonenumber);
                     $("#mainViewTrans").click();
                 }).fail(function(err){
@@ -107,7 +106,7 @@ var app = {
 
 
 
-            alert("All functions loaded.")
+            //alert("All functions loaded.")
 
             $(".addCircle").click(function(){
                 var phone = $("#addFriend").val();
