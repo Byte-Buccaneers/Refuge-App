@@ -40,9 +40,9 @@ var app = {
         }, false);
     },
     errorLogger : function(){
-        alert("error logging now in alerts");
+        //alert("error logging now in //alerts");
         window.onerror = function(msg, url, linenumber) {
-            alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+            //alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
         return true;
         }
     },
@@ -50,41 +50,67 @@ var app = {
     onDeviceReady: function() {
         // Start adding your code here...
         $(document).ready(function(){
-            alert("Document ready");
-
-            var defaultGroupContent = "<div> Your group has no members. </div>";
-            $('#groupContent').html(defaultGroupContent);
+            //alert("Document ready");
+            var defaultGroupContent  = "<div class='messageContainer'>"
+                defaultGroupContent += " <p>NO CURRENT GROUP</p> "
+                defaultGroupContent += " <p>Pick a destination or add a friend to start.</p></div>";
+            $('#groupContent').prepend(defaultGroupContent);
                 $.ajax({
-                    url: "https://khe2015.herokuapp.com/users/newuser"
-                }).complete(function(data){
-                    alert("ajax fired!")
-                    $('#groupContent').html("<div>hell yeah</div>");
+                    url: "https://khe2015.herokuapp.com/"
+                }).success(function(data){
+                    //alert("ajax fired!")
+
+                }).error(function(err){
+                    //alert("ajax failure.")
+                    //alert(err);
                 });
             })
 
             // localStorage.setItem("phoneNumber","5556667777")
             //below line clears localstored phonenumber, use for debugging
             localStorage.removeItem("phoneNumber");
-            // alert(localStorage.getItem("phoneNumber"));
+            // //alert(localStorage.getItem("phoneNumber"));
             if(localStorage.getItem("phoneNumber") === null){
                 $('#initialize').click();
             }
 
             $("#initSubmit").click(function(){
-                phonenumber = $("#phonenumber").value;
-                name = $("#name").value;
-                reqObj = {"phonenumber":phonenumber , "name":name};
+                phonenumber = $("#phonenumber").val());
+                name = $("#name").val();
+                url = "https://khe2015.herokuapp.com/createuser/" + phonenumber + '/' + name;
+                alert(url);
+                if (name === undefined || phonenumber === undefined){
+                } else{
                 $.ajax({
-                    url:"www.google.com"
+                    url:url
                     //url: "https://khe2015.herokuapp.com/users/newuser",
                     //method: "PUT",
                     //data: reqObj
-                }).complete(function(data){
-                    alert("ajax fired!")
+                }).success(function(data){
+                    alert(data);
+                    localStorage.setItem("phoneNumber",phonenumber);
                     $("#mainViewTrans").click();
+                }).fail(function(err){
+                    alert("ajax failure.")
+                    alert(err);
                 });
-
+                }
             })
+
+            navigator.geolocation.getCurrentPosition(
+                function(data){alert(data)});
+
+            alert("All functions loaded.")
+
+            $(".addCircle").click(function(){
+                var phone = $("#addFriend").val();
+                var newElement  = "<div class='spanningContainer'>"
+                    newElement += phone;
+                    newElement += "</div>"
+                $('.messageContainer').css("display","none");
+
+                $('#groupContent').prepend(newElement);
+            });
 
 
     }

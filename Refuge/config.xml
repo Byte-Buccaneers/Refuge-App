@@ -69,10 +69,13 @@
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
+        <access origin="*" />
   <platform name="android">
-    <allow-intent href="market:*"/>
+      <allow-intent href="market:*"/>
+      <access origin="*" />
   </platform>
   <platform name="ios">
+    <access origin="*"/>
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>

@@ -56,9 +56,9 @@
             ========================================== -->
             <div id="directions" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <h1>Directions</h1>
+                    <h1>All Directions</h1>
                 </div>
-                <div data-role="content" >
+                <div data-role="content" id="directionsContent">
                     <div class="spanning-container">
                     </div>
                 </div>
@@ -75,12 +75,16 @@
 
             <div id="group" data-role="page">
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
-                    <h1>Group</h1>
+                    <h1>All Members</h1>
                 </div>
-                <div data-role="content" id="groupContent">
-                    <div class="spanning-container">
+                <div data-role="content" id="groupContent" class="content">
+                    <div class="addFunction">
+                        <input type="tel" placeholder="Invite via phone number" id="addFriend"/>
+                        <div class="addCircle" data-theme="f" data-mini="false">ADD</div>
+                        <div class="messsageBox"></div>
                     </div>
                 </div>
+
                 <div id="footer" data-role="footer" data-id="footer1" data-position="fixed" data-tap-toggle="false">
                     <div id="navbar" data-role="navbar">
                         <ul>
@@ -96,7 +100,7 @@
                 <div data-role="header" data-id="header" id="header" data-position="fixed" class="ui-header">
                     <h1>Map</h1>
                 </div>
-                <div data-role="content" >
+                <div data-role="content" class="content">
                     <div class="spanning-container">
                     </div>
                 </div>
