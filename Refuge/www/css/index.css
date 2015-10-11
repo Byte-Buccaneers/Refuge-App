@@ -108,11 +108,12 @@ margin: 1.2em 30% .8em;
     min-height: fit-content;
 }
 .spanningContainer{
-    width: 100%;
+    width: 90%;
     height: 100px;
     box-shadow: 2px 3px 3px 1px rgba(0, 0, 0, 0.2);
-    padding: 10px 15px;
+    padding: 10px;
     background-color: white;
+    margin: 0px auto 10px auto;
 }
 
 .addFunction{
