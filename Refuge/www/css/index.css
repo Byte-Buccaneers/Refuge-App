@@ -88,6 +88,10 @@ margin: 1.2em 30% .8em;
     background-color: #caaedf;
 }
 
+#map{
+    background-color: #caaedf;    
+}
+
 #groupContent{
     margin: 5px auto;
     padding: 5px 0px;
