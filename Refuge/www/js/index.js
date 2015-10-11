@@ -53,7 +53,7 @@ var app = {
             //alert("Document ready");
             // localStorage.setItem("phoneNumber","5556667777")
             //below line clears localstored phonenumber, use for debugging
-            //localStorage.removeItem("phonenumber");
+            localStorage.removeItem("phonenumber");
             // //alert(localStorage.getItem("phoneNumber"));
 
             var defaultGroupContent  = "<div class='messageContainer'>"
