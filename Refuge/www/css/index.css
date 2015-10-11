@@ -129,6 +129,11 @@ margin: 1.2em 30% .8em;
     text-align:center;
 }
 
+.footer {
+    bottom: 0px;
+}
+
+
 .addCircle{
     background-color:#4288CC;
     width:80px;
