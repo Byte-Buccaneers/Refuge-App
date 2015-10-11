@@ -51,33 +51,62 @@ var app = {
         // Start adding your code here...
         $(document).ready(function(){
             //alert("Document ready");
+            // localStorage.setItem("phoneNumber","5556667777")
+            //below line clears localstored phonenumber, use for debugging
+            //localStorage.removeItem("phonenumber");
+            // //alert(localStorage.getItem("phoneNumber"));
 
-            var grabLoc = navigator.geolocation.getCurrentPosition(function(data, err){
-                //alert(data);
-                return data;
-            });
             var defaultGroupContent  = "<div class='messageContainer'>"
                 defaultGroupContent += " <p>NO CURRENT GROUP</p> "
                 defaultGroupContent += " <p>Pick a destination or add a friend to start.</p></div>";
             $('#groupContent').prepend(defaultGroupContent);
+
+            navigator.geolocation.getCurrentPosition(function(data, err){
+                //alert(data);
+                if (data != undefined){
+                  localStorage.setItem("lat", data.coords.latitude);
+                  localStorage.setItem("long", data.coords.longitude);
+                  localStorage.setItem("time", data.timestamp);
+                  localStorage.setItem("init", true);
+                }
+                return 1;
+            });
+
+            function update(){
+              console.log(localStorage.getItem("phonenumber"))
+              if(localStorage.getItem("init")){
+              var lat = localStorage.getItem("lat")
+                  lat = lat.split('.');
+              var lon = localStorage.getItem("long")
+                  lon = lon.split('.');
+              var time = localStorage.getItem("time");
+              var phonenumber = localStorage.getItem("phonenumber");
+              if(lat[0] == null || lon[0] == null || time == null){
+              } else {
+                console.log(time);
+                url = "https://khe2015.herokuapp.com/updateuser/" + phonenumber + '/';
+                url += lon[0] + '/' + lon[1] + '/' + lat[0] + '/' + lat[1]
                 $.ajax({
-                    url: "https://khe2015.herokuapp.com/"
+                    url:url
                 }).success(function(data){
-                    //alert("ajax fired!")
-
-                }).error(function(err){
-                    //alert("ajax failure.")
-                    //alert(err);
+                  console.log(data);
+                }).fail(function(err){
+                    alert("ajax failure.")
+                    alert(err);
                 });
-            })
+              }}
+            }
 
-            // localStorage.setItem("phoneNumber","5556667777")
-            //below line clears localstored phonenumber, use for debugging
-            //localStorage.removeItem("phoneNumber");
-            // //alert(localStorage.getItem("phoneNumber"));
-            if(localStorage.getItem("phoneNumber") === null){
+            window.setInterval(function(){
+              update();
+            }, 300000);
+
+
+
+            if(localStorage.getItem("phonenumber") === null){
                 $('#initialize').click();
             } else {
+                update();
                 $("#mainViewTrans").click();
             }
 
@@ -95,7 +124,8 @@ var app = {
                     //data: reqObj
                 }).success(function(data){
                     //alert(data);
-                    localStorage.setItem("phoneNumber",phonenumber);
+                    localStorage.setItem("phonenumber",phonenumber);
+                    update();
                     $("#mainViewTrans").click();
                 }).fail(function(err){
                     alert("ajax failure.")
@@ -109,15 +139,24 @@ var app = {
             //alert("All functions loaded.")
 
             $(".addCircle").click(function(){
-                var phone = $("#addFriend").val();
-                var newElement  = "<div class='spanningContainer'>"
-                    newElement += phone;
-                    newElement += "</div>"
-                $('.messageContainer').css("display","none");
 
+              $.ajax({
+                  url: "https://khe2015.herokuapp.com/"
+              }).success(function(data){
+
+              }).error(function(err){
+                  //alert("ajax failure.")
+                  //alert(err);
+              });
+
+                var phone = $("#addFriend").val();
+                var newElement  = "<div class='spanningContainer'>";
+                    newElement += phone;
+                    newElement += "</div>";
+                $('.messageContainer').css("display","none");
                 $('#groupContent').prepend(newElement);
             });
-
+          })
 
     }
 };
