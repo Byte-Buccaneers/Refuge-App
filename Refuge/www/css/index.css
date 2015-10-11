@@ -91,6 +91,7 @@ margin: .8em 30% .8em;
 #groupContent{
     margin: 5px auto;
     padding: 5px 0px;
+    overflow: scroll;
 }
 
 #mapcontent{
@@ -104,7 +105,6 @@ margin: .8em 30% .8em;
 #directionsContent{
     margin: 5px auto;
     padding: 5px 0px;
-
     min-height: fit-content;
 }
 .spanningContainer{
@@ -146,6 +146,7 @@ margin: .8em 30% .8em;
 
 .messageContainer{
     margin-top: 50px;
+    margin-bottom:50px;
     width:100%;
     height: 100px;
     font-size: 24px;

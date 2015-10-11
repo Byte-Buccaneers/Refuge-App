@@ -51,6 +51,11 @@ var app = {
         // Start adding your code here...
         $(document).ready(function(){
             //alert("Document ready");
+
+            var grabLoc = navigator.geolocation.getCurrentPosition(function(data, err){
+                alert(data);
+                return data;
+            });
             var defaultGroupContent  = "<div class='messageContainer'>"
                 defaultGroupContent += " <p>NO CURRENT GROUP</p> "
                 defaultGroupContent += " <p>Pick a destination or add a friend to start.</p></div>";
@@ -68,14 +73,17 @@ var app = {
 
             // localStorage.setItem("phoneNumber","5556667777")
             //below line clears localstored phonenumber, use for debugging
-            localStorage.removeItem("phoneNumber");
+            //localStorage.removeItem("phoneNumber");
             // //alert(localStorage.getItem("phoneNumber"));
             if(localStorage.getItem("phoneNumber") === null){
                 $('#initialize').click();
+            } else {
+
+                $("#mainViewTrans").click();
             }
 
             $("#initSubmit").click(function(){
-                phonenumber = $("#phonenumber").val());
+                phonenumber = $("#phonenumber").val();
                 name = $("#name").val();
                 url = "https://khe2015.herokuapp.com/createuser/" + phonenumber + '/' + name;
                 alert(url);
@@ -97,8 +105,7 @@ var app = {
                 }
             })
 
-            navigator.geolocation.getCurrentPosition(
-                function(data){alert(data)});
+
 
             alert("All functions loaded.")
 
